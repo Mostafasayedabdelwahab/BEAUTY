@@ -734,11 +734,18 @@ nav ul li a {
 }
 @media (max-width: 768px) {
   .whyUs-section .whyUs_icon {
-    padding: 10px;
+    padding: 7px 9px;
   }
   .whyUs-section .whyUs_icon svg {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
+  }
+  .whyUs-section p {
+    display: none;
+  }
+  .whyUs_content h4 {
+    font-size: 12px;
+    margin-top: 5px;
   }
 }
 .whyUs-section p {
@@ -750,11 +757,9 @@ nav ul li a {
 .whyUs-section .whyUs_content .col-6 {
   width: 45%;
 }
-@media (min-width: 768px) {
-  .whyUs-section .whyUs_content .col-md-3 {
+  .whyUs-section .whyUs_content .col-3 {
     width: 23%;
   }
-}
 /* end whyUs-section */
 /* start Reviews-section */
 .Reviews-section {
@@ -843,6 +848,7 @@ nav ul li a {
   font-weight: 500;
   font-size: 16px;
   transition: var(--transition);
+  white-space: nowrap;
 }
 .btn_more:hover {
   background: var(--main-color--);
@@ -864,6 +870,7 @@ nav ul li a {
   background: var(--main-color--);
   color: white;
   padding: 70px 0 0;
+  overflow: hidden;
 }
 .footer * {
   text-align: right;
@@ -975,7 +982,6 @@ nav ul li a {
   }
 }
 @media screen and (max-width: 768px) {
- 
   .footer-column p {
     font-size: 17px;
   }
