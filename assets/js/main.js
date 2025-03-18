@@ -122,9 +122,52 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// footer
-document.getElementById("Copy_year").textContent = new Date().getFullYear();
+// Sidebar
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebar = document.getElementById("sidebar");
+  const openSidebar = document.getElementById("openSidebar");
+  const closeSidebar = document.getElementById("closeSidebar");
+  const links = sidebar.querySelectorAll("a"); // كل اللينكات جوا السايدبار
 
+  // فتح السايدبار
+  openSidebar.addEventListener("click", function (event) {
+    event.stopPropagation(); // عشان الضغط على الزرار نفسه ميقفلهاش
+    sidebar.classList.toggle("open");
+  });
+
+  // إغلاق السايدبار بالزرار
+  closeSidebar.addEventListener("click", function () {
+    sidebar.classList.remove("open");
+  });
+
+  // إغلاق السايدبار عند الضغط خارجها
+  document.addEventListener("click", function (event) {
+    if (
+      !sidebar.contains(event.target) &&
+      !openSidebar.contains(event.target)
+    ) {
+      sidebar.classList.remove("open");
+    }
+  });
+
+  // منع إغلاقها لو ضغطت جواها
+  sidebar.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", function () {
+      sidebar.classList.remove("open");
+    });
+  });
+});
+
+
+// footer
+if (document.getElementById("Copy_year")) {
+  document.getElementById("Copy_year").textContent = new Date().getFullYear();
+}
+// footer button
 document.querySelectorAll(".faq-button").forEach((e) => {
   let data_color = e.getAttribute("data-color");
   e.addEventListener("mouseenter", () => {
@@ -137,3 +180,4 @@ document.querySelectorAll(".faq-button").forEach((e) => {
     e.style.color = "#fff";
   });
 });
+
