@@ -1,4 +1,4 @@
-* {
+:root {
   --main-color--: #72448d;
   --Text-color--: #250b34;
   --holdText-color--: #d1d1d1;
@@ -1037,7 +1037,14 @@ nav ul li a {
   background-color: #fff;
   color: #000;
 }
+.payment-methods{
+  white-space: nowrap;
+}
 /* end footer  */
+
+
+
+
 
 @keyframes jello-vertical {
   0% {
