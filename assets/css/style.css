@@ -4,6 +4,7 @@
   --holdText-color--: #d1d1d1;
   --transition: 0.5s;
 }
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
@@ -268,6 +269,82 @@ nav ul li a {
 .mobile-nav a svg {
   margin: auto;
 }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  background: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+  padding: 20px 0;
+  z-index: 99999;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.sidebar h2 {
+  color: var(--Text-color--);
+  padding: 0 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  margin: 0 !important;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: var(--Text-color--);
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 !important;
+}
+
+.sidebar ul li a svg {
+  margin: 0 0 0 10px;
+  width: 17px;
+  height: 17px;
+}
+.sidebar .badge_count {
+  background: var(--main-color--);
+  color: #fff;
+  font-size: 10px;
+  padding: 5px;
+  position: absolute;
+  top: -13px;
+  right: -4px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.close-btn {
+  position: absolute;
+  top: 22px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
 .head-scroll {
   background: rgb(255, 255, 255);
   padding: 20px 10px 0;
@@ -757,9 +834,9 @@ nav ul li a {
 .whyUs-section .whyUs_content .col-6 {
   width: 45%;
 }
-  .whyUs-section .whyUs_content .col-3 {
-    width: 23%;
-  }
+.whyUs-section .whyUs_content .col-3 {
+  width: 23%;
+}
 /* end whyUs-section */
 /* start Reviews-section */
 .Reviews-section {
@@ -1037,14 +1114,10 @@ nav ul li a {
   background-color: #fff;
   color: #000;
 }
-.payment-methods{
+.payment-methods {
   white-space: nowrap;
 }
 /* end footer  */
-
-
-
-
 
 @keyframes jello-vertical {
   0% {
