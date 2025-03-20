@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-// Add to heart
+// Add to cart
 document.addEventListener("DOMContentLoaded", function () {
   let hearts = document.querySelectorAll(".addToCart");
 
@@ -215,11 +215,13 @@ if (document.getElementById("sidebar")) {
     openSidebar.addEventListener("click", function (event) {
       event.stopPropagation(); // عشان الضغط على الزرار نفسه ميقفلهاش
       sidebar.classList.toggle("open");
+      document.body.classList.add("overflow-hidden"); 
     });
 
     // إغلاق السايدبار بالزرار
     closeSidebar.addEventListener("click", function () {
       sidebar.classList.remove("open");
+      document.body.classList.remove("overflow-hidden");
     });
 
     // إغلاق السايدبار عند الضغط خارجها
@@ -229,6 +231,7 @@ if (document.getElementById("sidebar")) {
         !openSidebar.contains(event.target)
       ) {
         sidebar.classList.remove("open");
+      document.body.classList.remove("overflow-hidden");
       }
     });
 
@@ -240,6 +243,7 @@ if (document.getElementById("sidebar")) {
     links.forEach((link) => {
       link.addEventListener("click", function () {
         sidebar.classList.remove("open");
+      document.body.classList.remove("overflow-hidden");
       });
     });
   });
