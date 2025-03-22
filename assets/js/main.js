@@ -389,12 +389,13 @@ if (document.querySelector(".mySwiper")) {
     },
   });
 }
+//Swiper
 
 if (document.querySelector(".mySwiper-products")) {
   var swiper2 = new Swiper(".mySwiper-products", {
     loop: true,
     autoplay: {
-      delay: 5000, // يغير الصورة كل 5 ثواني
+      delay: 50000000, // يغير الصورة كل 5 ثواني
       disableOnInteraction: false,
     },
     pagination: {
@@ -415,3 +416,25 @@ if (document.querySelector(".mySwiper-products")) {
     },
   });
 }
+//Swiper
+
+function setEqualHeightForEachSwiper() {
+  document.querySelectorAll('.swiper').forEach(swiper => {
+    let maxHeight = 0;
+    let slides = swiper.querySelectorAll('.swiper-slide .card');
+
+    // إعادة تعيين الارتفاعات لحساب الطول الصحيح
+    slides.forEach(card => {
+      card.style.height = 'auto';
+      maxHeight = Math.max(maxHeight, card.offsetHeight);
+    });
+
+    // تطبيق الطول الموحد لكل كروت هذا السوايبر فقط
+    slides.forEach(card => {
+      card.style.height = maxHeight + 'px';
+    });
+  });
+}
+// تشغيل الدالة عند تحميل الصفحة وبعد تغيير السلايدر
+document.addEventListener("DOMContentLoaded", setEqualHeightForEachSwiper);
+window.addEventListener("resize", setEqualHeightForEachSwiper);
