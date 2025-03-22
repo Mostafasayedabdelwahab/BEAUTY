@@ -827,7 +827,7 @@ nav ul li a {
 .whyUs-section {
   padding: 20px;
   background: linear-gradient(#f6e9ce21, #f6e9ce21),
-    url(/assets/img/seach_pattern.jpg);
+    url(../img/seach_pattern.jpg);
   background-position: center;
   background-size: cover;
 }
@@ -886,7 +886,7 @@ nav ul li a {
 .Reviews-section {
   padding: 20px;
   background: linear-gradient(#e3caf052, #e3caf052),
-    url(assets/img/Reviews-section.jpg);
+    url(../img/Reviews-section.jpg);
   background-position: center;
   background-size: cover;
 }
