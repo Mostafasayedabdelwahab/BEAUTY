@@ -805,7 +805,7 @@ nav ul li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 5px auto;
+  margin: 5px;
 }
 .Offers .timer div {
   display: flex;
@@ -1306,6 +1306,8 @@ nav ul li a {
 .filter.open {
   bottom: 0;
   padding-top: 35px;
+  max-height: 90vh;
+  overflow: auto;
 }
 #closeFilter {
   top: 4px;
@@ -1313,10 +1315,10 @@ nav ul li a {
 @media (max-width: 768px) {
   .filter {
     position: fixed;
-    bottom: -100%;
+    bottom: -120%;
     background: white;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-    transition: 0.5s ease-in-out;
+    transition: 0.8s ease-in-out;
     padding: 20px 0;
     z-index: 99999;
     border-top-left-radius: 20px;
@@ -1325,7 +1327,17 @@ nav ul li a {
     transform: translateX(50%);
     width: 90%;
   }
+  .seaMore-section .card-body {
+   padding: 8px;
 }
+}
+
+.seaMore-service-section .buy-button,
+.seaMore-Offer-section .buy-button  {
+width: 100% !important;
+}
+
+
 /* end serviceSeaMore  */
 
 /* start privacy_page  */
@@ -1340,16 +1352,15 @@ nav ul li a {
   margin-bottom: 20px;
 }
 .terms_page .text_contet ul,
-.privacy_page .text_contet ul{
-padding: 15px;
-list-style: decimal;
+.privacy_page .text_contet ul {
+  padding: 15px;
+  list-style: decimal;
 }
 .text_contet ul::marker {
   font-size: 18px;
-  
 }
 .privacy_page span,
-.privacy_page p  {
+.privacy_page p {
   font-size: 18px;
 }
 /* end privacy_page  */
@@ -1553,4 +1564,10 @@ list-style: decimal;
   100% {
     transform: scale3d(1, 1, 1);
   }
+}
+
+  .seaMore-section .product-card  .card-body {
+     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
