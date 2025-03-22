@@ -534,7 +534,7 @@ nav ul li a {
 .search-section {
   padding: 20px;
   background: linear-gradient(#f6e9ce21, #f6e9ce21),
-    url(/assets/img/seach_pattern.jpg);
+     url(../img/seach_pattern.jpg);
   background-position: center;
   background-size: cover;
 }
