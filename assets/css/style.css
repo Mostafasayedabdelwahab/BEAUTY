@@ -704,6 +704,7 @@ nav ul li a {
   color: #fff;
   font-weight: 700;
   font-size: 16px;
+  margin: 0 auto ;
 }
 
 .addToCart:hover,
@@ -718,7 +719,7 @@ nav ul li a {
   .addToCart:hover,
   .addToCart {
     width: 30px;
-    border-radius: 11px;
+    border-radius: 5px;
     padding: 3px 5px;
   }
   .buy-button {
@@ -1567,7 +1568,7 @@ width: 100% !important;
   }
 }
 
-  .seaMore-section .product-card  .card-body {
+   .product-card  .card-body {
      display: flex;
     flex-direction: column;
     justify-content: space-between;
