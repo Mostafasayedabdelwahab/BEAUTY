@@ -793,6 +793,7 @@ nav ul li a {
   .buy-button {
     font-weight: 500;
     font-size: 14px;
+    border-radius: 6px;
   }
   .badge_heart svg {
     width: 35px;
@@ -885,7 +886,7 @@ nav ul li a {
 .Reviews-section {
   padding: 20px;
   background: linear-gradient(#e3caf052, #e3caf052),
-    url(/assets/img/Reviews-section.jpg);
+    url(assets/img/Reviews-section.jpg);
   background-position: center;
   background-size: cover;
 }
