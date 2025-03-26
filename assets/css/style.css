@@ -398,8 +398,8 @@ nav ul li a {
     margin: 0 10px;
   }
   .mobile-nav ul li a {
-    padding: 10px 0;
-    font-size: 15px;
+    padding: 10px 0 0;
+    font-size: 12px;
   }
 }
 @media (max-width: 530px) {
@@ -2162,6 +2162,8 @@ legend {
 @media screen and (max-width: 780px) {
   .modal-login-overlay .modalLogin {
     width: 90%;
+    max-height: 90vh;
+    overflow: auto;
   }
 }
 
