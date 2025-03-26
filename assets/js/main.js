@@ -692,3 +692,39 @@ if (document.getElementById("receipt")) {
     });
   }
 }
+if (document.querySelector(".copy-btn")) {
+  document.querySelector(".copy-btn").addEventListener("click", function () {
+    const orderID = document.querySelector(".order-id").textContent;
+    const copyMessage = document.querySelector(".copy-message");
+
+    // نسخ النص إلى الحافظة
+    navigator.clipboard.writeText(orderID).then(() => {
+      copyMessage.textContent = "تم النسخ ✅"; // تعيين الرسالة
+      copyMessage.classList.add("show"); // إضافة كلاس لتظهر الرسالة
+
+      // إخفاء الرسالة بعد 5 ثواني
+      setTimeout(() => {
+        copyMessage.textContent = "";
+        copyMessage.classList.remove("show");
+      }, 5000);
+    });
+  });
+}
+
+if (document.querySelector(".order-tracking")) {
+  function toggleDetails(element) {
+    let icon = element.querySelector(".toggle-btn svg");
+    let details = element.parentElement.nextElementSibling;
+    if (details) {
+      if (details.style.display === "block" || details.style.display === "") {
+        details.style.display = "none";
+        icon.classList.add("fa-chevron-up");
+        icon.classList.remove("fa-chevron-down");
+      } else {
+        details.style.display = "block";
+        icon.classList.add("fa-chevron-down");
+        icon.classList.remove("fa-chevron-up");
+      }
+    }
+  }
+}
