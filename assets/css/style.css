@@ -2243,7 +2243,7 @@ legend {
 .order-header {
   font-weight: bold;
   font-size: 18px;
-  color: #4a235a;
+  color: var(--main-color--);
   margin-bottom: 10px;
 }
 
@@ -2268,12 +2268,342 @@ legend {
 .order-card .total {
   font-weight: bold;
   font-size: 18px;
-  color: #4a235a;
+  color: var(--main-color--);
   border-top: 1px solid #ddd;
   padding-top: 10px;
 }
 
 /* end productPage  */
+/* start servtPage  */
+.servtpage #mainImage {
+  width: 100%;
+  height: 445px;
+  border-radius: 8px;
+}
+
+.servtpage .thumbnail {
+  width: 110px;
+  height: 110px;
+}
+@media (max-width: 768px) {
+  .servtpage .thumbnail {
+    width: 70px;
+    height: 60px;
+  }
+  .servtpage #mainImage {
+    width: 350px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bookingServiceCards .card-body {
+    padding: 10px 5px;
+  }
+  .bookingServiceCards .card-body h4 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .bookingServiceCards .card-body h4 svg {
+    width: 15px;
+    height: 15px;
+  }
+  .bookingServiceCards .buy-button {
+    width: 100% !important;
+  }
+
+  .bookingServiceCards .card-img-top {
+    width: 250px;
+    height: 175px;
+  }
+}
+
+.servtpage .nav .nav-item {
+  width: 25%;
+  padding: 0;
+}
+.servtpage .nav-tabs .nav-link {
+  padding: 10px 5px;
+}
+.servtpage .tab-content {
+  padding: 0;
+  border: none;
+  border-radius: unset;
+}
+
+.servtpage .review-box {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0 15px;
+}
+.servtpage .review-box:last-child {
+  border-bottom: none;
+}
+.servtpage .reviewer-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.servtpage .reviewer-name {
+  font-weight: bold;
+  color: var(--main-color--);
+}
+.servtpage .review-date {
+  font-size: 0.9rem;
+  color: gray;
+}
+.servtpage .review-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+.review-box-Staff {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+.review-box-Staff .reviewer-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.review-box-Staff .reviewer-name {
+  font-weight: bold;
+  color: var(--main-color--);
+}
+.review-box-Staff .review-job {
+  font-size: 0.9rem;
+  color: gray;
+}
+.review-box-Staff .add-rating {
+  color: var(--main-color--);
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.review-box-Staff .rating-form {
+  display: flex;
+  align-items: center;
+}
+.review-box-Staff .rating {
+  font-size: 1.5rem;
+}
+.review-box-Staff .rating svg {
+  cursor: pointer;
+  fill: #ccc;
+  transition: fill 0.3s;
+  width: 24px;
+  height: 24px;
+}
+.review-box-Staff .rating svg path {
+  fill: #d0d0d0;
+}
+.review-box-Staff .rating svg.selected path {
+  fill: #ffd601;
+}
+
+.servtpage .schedule {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.servtpage .day-card {
+  text-align: center;
+  position: relative;
+  color: var(--main-color--);
+  font-weight: 600;
+}
+.servtpage .time {
+  font-size: 14px;
+  color: var(--Text-color--);
+  font-weight: 400;
+}
+.servtpage .rang_time {
+  margin: 10px 0 0;
+}
+.servtpage .rang_time hr {
+  margin: 5px 0;
+}
+.servtpage .day-card .dayOfweek {
+  padding: 5px;
+  background-color: #f3e5f5;
+  font-size: 16px;
+}
+@media (max-width: 1200px) {
+  .servtpage .day-card .dayOfweek {
+    font-size: 14px;
+    width: 60px;
+  }
+}
+.servtpage .dayOfweek.today {
+  background-color: #4caf50;
+  color: white;
+}
+.servtpage .dayOfweek.today + .rang_time .time {
+  color: #4caf50;
+}
+.servtpage .dayOfweek.closed {
+  background-color: #f8d7da;
+  color: var(--main-color--);
+}
+.servtpage .dayOfweek.closed .time {
+  color: #c82333;
+}
+.servtpage .closed-label {
+  color: white;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 15px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.servtpage .closed-label svg {
+  position: absolute;
+  top: -16px;
+  left: 0;
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  .servtpage .day-card {
+    font-weight: 400;
+  }
+  .servtpage .day-card .dayOfweek {
+    font-size: 10px;
+    width: auto;
+  }
+  .servtpage .closed-label {
+    font-size: 10px;
+    top: 35px;
+  }
+  .servtpage .closed-label svg {
+    top: -17px;
+    left: -1px;
+  }
+  .servtpage .nav-tabs .nav-link.active {
+    font-weight: 400;
+    color: var(--main-color--);
+  }
+  .servtpage .nav-tabs .nav-link {
+    padding: 10px 0px;
+    font-size: 13px;
+  }
+}
+
+.booking-btn {
+  width: 240px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 15px auto;
+}
+@media (max-width: 768px) {
+  .booking-btn {
+    width: 140px;
+    height: 140px;
+    text-align: center;
+  }
+}
+
+.booking-btn .booking-text {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+.booking-card {
+  max-width: 400px;
+  margin: 15px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.booking-card .imgforServ {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .booking-card .imgforServ {
+    height: 150px;
+  }
+}
+.details-box img {
+  width: auto;
+  height: auto;
+  max-width: 50px;
+  max-height: 50px;
+}
+.details-box small {
+  font-size: 10px;
+  margin: 5px 0;
+}
+.service-title {
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.details-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+.details-box div {
+  flex: 1;
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.details-box div i {
+  color: var(--main-color--);
+}
+.buttonsforServ {
+  padding: 10px;
+}
+.buttonsforServ a {
+  flex: 1;
+  margin: 0 5px;
+  padding: 4px 3px;
+  font-size: 13px;
+  transition: var(--transition);
+}
+
+.buttonsforServ .btn-cancel {
+  background: #d32f2f;
+  color: white;
+}
+.buttonsforServ .btn-schedule {
+  background: var(--main-color--);
+  color: white;
+}
+.buttonsforServ .btn-cancel:hover {
+  background: #d32f2f;
+  color: white;
+}
+.buttonsforServ .btn-schedule:hover {
+  background: var(--main-color--);
+  color: white;
+}
+
+.servtpage .modal-login-overlay .nav .nav-item {
+  width: 50%;
+}
+/* end servtPage  */
 /* start footer  */
 .footer {
   background: var(--main-color--);
@@ -2554,4 +2884,308 @@ legend {
   height: 50px;
   margin: 5px 5px 0;
   padding: 5px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* صندوق المودال */
+.modal-con {
+  background: white;
+  padding: 20px 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+  position: relative;
+  width: 40%;
+  overflow: auto;
+}
+
+.modal-overlay.active .modalChooseserv {
+  transform: translateY(0);
+}
+
+.modalChooseserv .card-custom {
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px 0 0;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  background: linear-gradient(
+      rgba(237, 219, 247, 0.9),
+      rgba(245, 234, 251, 0.9)
+    ),
+    url("../img/bgserv.png");
+  background-size: 76%;
+  background-position-y: 415%;
+  background-repeat: repeat;
+  background-position-x: 20%;
+}
+
+.modalChooseserv .profile-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid white;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.modalChooseserv .name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+  position: relative;
+}
+
+.modalChooseserv .serv-time {
+  color: #666;
+  font-size: 14px;
+}
+
+/* عرض المودال */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 999999;
+}
+
+.modal-overlay.active .modalserv {
+  transform: translateY(0);
+}
+
+.modalservTitle {
+  border-bottom: 1.5px solid #d1d1d1;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+/* زر إغلاق */
+.modal-overlay .close-btn {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.modalserv .card-custom {
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px 0 0;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: linear-gradient(
+      rgba(237, 219, 247, 0.9),
+      rgba(245, 234, 251, 0.9)
+    ),
+    url("../img/bgserv.png");
+  background-size: 76%;
+  background-position-y: 415%;
+  background-repeat: repeat;
+  background-position-x: 20%;
+}
+
+.modalserv .profile-pic {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid white;
+  position: relative;
+}
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  position: relative;
+  margin: 0;
+}
+.job-title {
+  color: #666;
+  font-size: 14px;
+}
+
+.btn-select {
+  background: var(--main-color--);
+  color: white;
+  border-radius: 15px;
+  padding: 5px 10px;
+  width: 75%;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-select:hover {
+  background: #4a235a;
+  color: white;
+}
+.checkChooseserv input:checked + label,
+.checkCon input:checked + label {
+  background-color: #c82333;
+}
+
+/* صندوق المودال */
+.modalservTimeBook {
+  background: #f8ebff;
+  padding: 20px 20px 0;
+  width: 400px;
+}
+
+.modal-overlay.active .modalservTimeBook {
+  transform: translateY(0);
+}
+
+.calendar-container {
+  padding: 5px 20px 0;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  direction: ltr;
+}
+
+#calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  direction: ltr;
+  margin: auto;
+  border-bottom: 1px solid #616161;
+}
+
+.week-row,
+.days-row {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.week-day,
+.day {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 14px;
+}
+
+.day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  margin: 5px;
+}
+
+.disabled {
+  width: 40px;
+  height: 40px;
+  background: #dc3545;
+  color: white;
+  pointer-events: none;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.disabled small {
+  font-size: 8px;
+  position: absolute;
+  bottom: -10px;
+}
+
+.day.selected {
+  background: var(--main-color--);
+  color: white;
+}
+
+#timeSlots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.time-slot {
+  background-color: var(--main-color--);
+  color: white;
+  border: none;
+  padding: 9px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 65px;
+}
+.time-slot.selected {
+  background-color: #4a235a;
+}
+
+#workingHours {
+  text-align: center;
+  margin: 15px 0 0;
+}
+
+.label {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.hours {
+  color: #444;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .day {
+    font-size: 10px;
+  }
+  .disabled small {
+    font-size: 6px;
+  }
+}
+ .modalprivacy {
+    width: 600px;
+  }
+@media screen and (max-width: 780px) {
+  .modal-con {
+    width: 90%;
+  }
+  .modalprivacy {
+    width: 95%;
+    height: 90vh;
+  }
+}
+ 
+.btn.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  pointer-events: none; /* يمنع الضغط على الزر */
 }
