@@ -3184,6 +3184,9 @@ legend {
     width: 95%;
     height: 90vh;
   }
+    .total-section {
+    padding: 10px !important;
+}
 }
 
 .btn.disabled {
