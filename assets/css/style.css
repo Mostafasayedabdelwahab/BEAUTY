@@ -20,7 +20,9 @@ body {
 body.overflow-hidden {
   overflow: hidden;
 }
-
+.row.serv-item button.btn {
+  padding: 0;
+}
 ul {
   list-style: none;
 }
@@ -3084,6 +3086,7 @@ legend {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  direction: ltr;
 }
 
 .week-day,
@@ -3164,15 +3167,15 @@ legend {
 }
 @media screen and (max-width: 768px) {
   .day {
-    font-size: 10px;
+    font-size: 13px;
   }
   .disabled small {
     font-size: 6px;
   }
 }
- .modalprivacy {
-    width: 600px;
-  }
+.modalprivacy {
+  width: 600px;
+}
 @media screen and (max-width: 780px) {
   .modal-con {
     width: 90%;
@@ -3182,10 +3185,12 @@ legend {
     height: 90vh;
   }
 }
- 
+
 .btn.disabled {
   background-color: #ccc;
   color: #666;
   cursor: not-allowed;
   pointer-events: none; /* يمنع الضغط على الزر */
+  display: flex;
+  justify-content: center;
 }
