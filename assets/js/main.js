@@ -1,137 +1,57 @@
 // البلاد
 if (document.getElementById("countrySelect")) {
-  $(document).ready(function () {
-    let currentLang = document.documentElement.lang || "ar"; // تحديد لغة الموقع
+  const countries = [
+    { code: "SA", name: "السعودية", flag: "https://flagcdn.com/w320/sa.png" },
+    { code: "QA", name: "قطر", flag: "https://flagcdn.com/w320/qa.png" },
+    { code: "AE", name: "الإمارات", flag: "https://flagcdn.com/w320/ae.png" },
+    { code: "BH", name: "البحرين", flag: "https://flagcdn.com/w320/bh.png" },
+    { code: "KW", name: "الكويت", flag: "https://flagcdn.com/w320/kw.png" },
+  ];
 
-    function loadCountries() {
-      fetch("https://restcountries.com/v3.1/all")
-        .then((response) => response.json())
-        .then((data) => {
-          let countrySelect = $("#countrySelect");
-          countrySelect.empty();
+  let countrySelect = $("#countrySelect");
+  countrySelect.empty();
 
-          data.forEach((country) => {
-            let countryName =
-              currentLang === "ar"
-                ? country.translations.ara?.common || country.name.common
-                : country.name.common;
-            let flagUrl = country.flags.svg;
-            let countryCode = country.cca2;
+  countries.forEach((country) => {
+    let option = new Option(country.name, country.code, false, false);
+    $(option).attr("data-flag", country.flag);
+    countrySelect.append(option);
+  });
 
-            let option = new Option(countryName, countryCode, false, false);
-            $(option).attr("data-flag", flagUrl);
-            countrySelect.append(option);
-          });
+  function formatCountry(country) {
+    if (!country.id) return country.text;
+    let flagUrl = $(country.element).attr("data-flag");
+    return $(
+      '<span><img src="' +
+        flagUrl +
+        '" class="flag-icon"/> ' +
+        country.text +
+        "</span>"
+    );
+  }
 
-          let selectedCountry = "SA"; // يمكنك تغيير القيمة من الباك اند  كود السعودية افتراضيًا
-          $("#countrySelect").val(selectedCountry).trigger("change");
-
-          function formatCountry(country) {
-            if (!country.id) return country.text;
-            let flagUrl = $(country.element).attr("data-flag");
-            return $(
-              '<span><img src="' +
-                flagUrl +
-                '" class="flag-icon"/> ' +
-                country.text +
-                "</span>"
-            );
-          }
-
-          countrySelect.select2({
-            templateResult: formatCountry,
-            templateSelection: formatCountry,
-          });
-        })
-        .catch((error) => console.error("حدث خطأ أثناء جلب البيانات:", error));
-    }
-
-    loadCountries(); // تحميل الدول لأول مرة
-
-    //  مراقبة تغيير لغة الموقع وتحديث القائمة تلقائيًا
-    const observer = new MutationObserver(() => {
-      let newLang = document.documentElement.lang;
-      if (newLang !== currentLang) {
-        currentLang = newLang;
-        $("#countrySelect").empty();
-        loadCountries();
-      }
-    });
-
-    // مراقبة تغييرات
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["lang"],
-    });
+  countrySelect.select2({
+    templateResult: formatCountry,
+    templateSelection: formatCountry,
+    minimumResultsForSearch: -1, // 🚀 إزالة البحث
   });
 }
-//موبايل البلاد
-if (document.getElementById("countrySelectMobile")) {
-  $(document).ready(function () {
-    let currentLang = document.documentElement.lang || "ar"; // تحديد لغة الموقع
 
-    function loadCountries() {
-      fetch("https://restcountries.com/v3.1/all")
-        .then((response) => response.json())
-        .then((data) => {
-          let countrySelect = $("#countrySelectMobile");
-          countrySelect.empty();
-
-          data.forEach((country) => {
-            let countryName =
-              currentLang === "ar"
-                ? country.translations.ara?.common || country.name.common
-                : country.name.common;
-            let flagUrl = country.flags.svg;
-            let countryCode = country.cca2;
-
-            let option = new Option(countryName, countryCode, false, false);
-            $(option).attr("data-flag", flagUrl);
-            countrySelect.append(option);
-          });
-
-          let selectedCountry = "SA"; // يمكنك تغيير القيمة من الباك اند  كود السعودية افتراضيًا
-          $("#countrySelectMobile").val(selectedCountry).trigger("change");
-
-          function formatCountry(country) {
-            if (!country.id) return country.text;
-            let flagUrl = $(country.element).attr("data-flag");
-            return $(
-              '<span><img src="' +
-                flagUrl +
-                '" class="flag-icon"/> ' +
-                country.text +
-                "</span>"
-            );
-          }
-
-          countrySelect.select2({
-            templateResult: formatCountry,
-            templateSelection: formatCountry,
-          });
-        })
-        .catch((error) => console.error("حدث خطأ أثناء جلب البيانات:", error));
-    }
-
-    loadCountries(); // تحميل الدول لأول مرة
-
-    //  مراقبة تغيير لغة الموقع وتحديث القائمة تلقائيًا
-    const observer = new MutationObserver(() => {
-      let newLang = document.documentElement.lang;
-      if (newLang !== currentLang) {
-        currentLang = newLang;
-        $("#countrySelectMobile").empty();
-        loadCountries();
-      }
-    });
-
-    // مراقبة تغييرات
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["lang"],
-    });
+// تفعيل مكتبة intl-tel-input
+if (document.querySelector("#phoneWithCode")) {
+  let input = document.querySelector("#phoneWithCode");
+  let iti = window.intlTelInput(input, {
+    initialCountry: "sa",
+    onlyCountries: ["sa", "qa", "ae", "bh", "kw"], // الدول المسموحة فقط
+    separateDialCode: true,
+    utilsScript:
+      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
   });
+  if (window.getComputedStyle(document.body).direction === "ltr") {
+    document.querySelector(".phoneCon").classList.add("flagenglish");
+    document.getElementById("phoneWithCode").classList.add("paddingInput");
+  }
 }
+
 // scroll links
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
@@ -207,6 +127,7 @@ if (document.getElementById("sidebar")) {
   document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.getElementById("sidebar");
     const openSidebar = document.getElementById("openSidebar");
+    const openSidebar2 = document.getElementById("openSidebar2");
     const closeSidebar = document.getElementById("closeSidebar");
     const links = sidebar.querySelectorAll("a"); // كل اللينكات جوا السايدبار
 
@@ -215,6 +136,11 @@ if (document.getElementById("sidebar")) {
       event.stopPropagation(); // عشان الضغط على الزرار نفسه ميقفلهاش
       sidebar.classList.toggle("open");
       document.body.classList.add("overflow-hidden");
+    });
+
+    openSidebar2.addEventListener("click", function (event) {
+      event.stopPropagation(); // عشان الضغط على الزرار نفسه ميقفلهاش
+      sidebar.classList.toggle("open");
     });
 
     // إغلاق السايدبار بالزرار
@@ -227,7 +153,8 @@ if (document.getElementById("sidebar")) {
     document.addEventListener("click", function (event) {
       if (
         !sidebar.contains(event.target) &&
-        !openSidebar.contains(event.target)
+        !openSidebar.contains(event.target) &&
+        !openSidebar2.contains(event.target)
       ) {
         sidebar.classList.remove("open");
         document.body.classList.remove("overflow-hidden");
@@ -558,7 +485,6 @@ if (document.getElementById("modalChooseservOverlay")) {
   document.querySelectorAll("#openModalChooseserv").forEach((e) => {
     e.addEventListener("click", toggleModal);
   });
-
 }
 // Modal serv
 if (document.getElementById("modalservOverlay")) {
@@ -605,7 +531,6 @@ if (document.getElementById("modalservOverlay")) {
 }
 // Modal servTimeBook
 if (document.getElementById("modalservTimeBookOverlay")) {
-
   function openModalservTimeBook() {
     document.getElementById("modalservTimeBookOverlay").classList.add("active");
     closeModalserv();
@@ -668,54 +593,17 @@ if (document.getElementById("modalprivacyOverlay")) {
     e.addEventListener("click", toggleModal);
   });
 
-        const checkbox = document.querySelector(".checkForPrivacy");
-        const button = document.querySelector(".payAfterPrivacy");
+  const checkbox = document.querySelector(".checkForPrivacy");
+  const button = document.querySelector(".payAfterPrivacy");
 
-        // تحديث كلاس الزر عند تغيير حالة Checkbox
-        checkbox.addEventListener("change", function () {
-          if (this.checked) {
-            button.classList.remove("disabled");
-          } else {
-            button.classList.add("disabled");
-          }
-        });
-}
-
-// تفعيل مكتبة intl-tel-input
-if (document.querySelector("#phoneWithCode")) {
-  let input = document.querySelector("#phoneWithCode");
-  let iti = window.intlTelInput(input, {
-    initialCountry: "sa",
-    preferredCountries: [
-      "sa",
-      "eg",
-      "ae",
-      "dz",
-      "ma",
-      "iq",
-      "jo",
-      "sy",
-      "kw",
-      "qa",
-      "bh",
-      "om",
-      "lb",
-      "sd",
-      "ly",
-      "tn",
-      "ye",
-      "ps",
-    ],
-
-    separateDialCode: true,
-    utilsScript:
-      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  // تحديث كلاس الزر عند تغيير حالة Checkbox
+  checkbox.addEventListener("change", function () {
+    if (this.checked) {
+      button.classList.remove("disabled");
+    } else {
+      button.classList.add("disabled");
+    }
   });
-
-  if (window.getComputedStyle(document.body).direction === "ltr") {
-    document.querySelector(".phoneCon").classList.add("flagenglish");
-    document.getElementById("phoneWithCode").classList.add("paddingInput");
-  }
 }
 
 // للتوصيل الخريطة
