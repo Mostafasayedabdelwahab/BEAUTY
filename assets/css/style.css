@@ -2780,9 +2780,7 @@ legend {
   background-color: #fff;
   color: #000;
 }
-.payment-methods {
-  white-space: nowrap;
-}
+
 /* end footer  */
 
 @keyframes jello-vertical {
@@ -3470,3 +3468,54 @@ margin-left: auto;
 }
 }
 /* Consultation page  */
+
+
+.upload-box {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+}
+.fa-upload {
+  color: #fff;
+  background: var(--main-color--);
+  padding: 15px;
+  border-radius: 12px;
+}
+.file-list {
+  margin-top: 20px;
+}
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px dashed #ccc;
+  flex-wrap: wrap;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.file-item:hover {
+  transform: scale(1.02);
+}
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.file-icon {
+  font-size: 24px;
+}
+.delete-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
